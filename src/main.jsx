@@ -9,6 +9,8 @@ import AboutPage from './pages/AboutPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import ServicesPage from './pages/ServicesPage.jsx';
 
+// import './Styles/Styles.css'; // Descomentar si se crea un archivo de estilos propio
+
 //render
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

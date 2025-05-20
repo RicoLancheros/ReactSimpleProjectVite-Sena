@@ -1,0 +1,13 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.section-title {
+  font-weight: bold;
+  color: #795548;
+}
+
+footer {
+  background: #f8f9fa;
+  color: #795548;
+}

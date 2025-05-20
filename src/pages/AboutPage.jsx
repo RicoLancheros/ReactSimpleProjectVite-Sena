@@ -3,14 +3,17 @@ import cafe1 from "../images/logo.png";
 
 const AboutPage = () => {
   return (
-    <div className="container mt-5">
+    <section className="container mt-5">
       <h2 className="section-title">Acerca de Cheo's Café</h2>
       <div className="row">
         <div className="col-md-6">
           <img
             src={cafe1}
-            alt="Historia de Cheo's Café"
+            alt="Logo de Cheo's Café"
             className="img-fluid rounded"
+            width="400"
+            height="400"
+            loading="eager"
           />
         </div>
         <div className="col-md-6">
@@ -27,8 +30,7 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
-
-    </div>
+    </section>
   );
 };
 
