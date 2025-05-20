@@ -1,13 +1,36 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
-// import './Styles/Styles.css'; //link css
-import logo from './images/logo.png'; // importar logo real
+import React, { useState, useEffect } from 'react'
+import { Link, Outlet, useLocation } from 'react-router-dom'
+import logo from './images/logo.png'; 
 
 const App = () => {
+  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const navbarClass = scrolled 
+    ? "navbar navbar-expand-lg bg-body-tertiary fixed-top py-2 shadow-sm" 
+    : "navbar navbar-expand-lg bg-body-tertiary fixed-top py-3";
+
   return (
     <div>
       <header>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className={navbarClass} style={{ transition: 'all 0.3s ease' }}>
           <div className="container-fluid">
             <Link className="navbar-brand d-flex align-items-center" to="/">
               <img
@@ -35,27 +58,36 @@ const App = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <Link to="/" className="nav-link active">Inicio</Link>
+                  <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Inicio</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/about" className="nav-link">Acerca de</Link>
+                  <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>Acerca de</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/services" className="nav-link">Productos</Link>
+                  <Link to="/services" className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}>Productos</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/contact" className="nav-link">Contacto</Link>
+                  <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contacto</Link>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       </header>
-      <main>
+      <main style={{ paddingTop: '5rem' }}>
         <Outlet />
       </main>
-      <footer className="bg-light text-center py-3 mt-5">
-        <small>© {new Date().getFullYear()} Cheo's Café. Todos los derechos reservados.</small>
+      <footer className="mt-5 py-4">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 text-center text-md-start">
+              <small>© {new Date().getFullYear()} Cheo's Café. Todos los derechos reservados.</small>
+            </div>
+            <div className="col-md-6 text-center text-md-end">
+              <small>Síguenos en nuestras redes sociales</small>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   )
