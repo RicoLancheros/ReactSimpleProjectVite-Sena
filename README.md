@@ -1,33 +1,37 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una página simple creada para taller del SENA, optimizada para accesibilidad, SEO y rendimiento.
 
-Pagina simple creada para taller del SENA, creada en 30 minutos:
+## Características
 
-#/////////////////////////////////////#
+- Navegación SPA con React Router.
+- Navbar responsive y accesible.
+- Imágenes optimizadas con atributos width/height y textos alternativos descriptivos.
+- Botones semánticos y feedback visual.
+- Estructura semántica con `<header>`, `<main>`, `<footer>`.
+- Formulario de contacto con validación y feedback.
+- Meta tags SEO y Open Graph.
+- Bootstrap 5 para estilos rápidos.
 
-#Pasos para Iniciar Proyecto:
+## Iniciar Proyecto
 
-#npm i
-
-#npm run dev
-
-#o + Enter
-
-#/////////////////////////////////////#
-
-Proceso simple al momento de creacion.
-
-npm create vite@latest mi-proyecto
-
-- Nombre - React - Javascript+WSP
-
-CD carpeta
-
+```bash
 npm i
+npm run dev
+```
 
-npm install react-router-dom
+## Estructura recomendada
 
-Extencion: Simple React Snippets
+- Usa imágenes WebP si es posible para mejor rendimiento.
+- Personaliza el favicon y logo en `/public`.
 
-Uso de Boostrap.# ReactSimpleProjectVite-Sena
+## Extensiones útiles
+
+- Simple React Snippets
+
+## Notas
+
+- Puedes agregar estilos propios en `src/Styles/Styles.css`.
+- El idioma del sitio es español y está optimizado para Colombia.
+
+---
